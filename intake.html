@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intakeformulier — BE Sushi</title>
+<style>
+  :root{--rood:#c8102e;--zwart:#1a1a1a;--goud:#d4af37;--bg:#f4f1ec;--lijn:#dfd7ca;--muted:#666;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--zwart);line-height:1.5;}
+  .blad{max-width:640px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 8px 30px rgba(0,0,0,.07);}
+  header{background:linear-gradient(160deg,#1a1a1a,#2b2b2b);color:#fff;text-align:center;padding:30px 22px 24px;}
+  header .em{font-size:28px;}
+  header h1{font-size:21px;margin:6px 0 3px;}
+  header p{color:var(--goud);font-size:13px;}
+  .body{padding:18px 18px 40px;}
+  h2{font-size:15px;color:var(--rood);margin:22px 0 10px;border-bottom:2px solid var(--lijn);padding-bottom:5px;}
+  label{display:block;font-size:13px;font-weight:600;color:#333;margin:12px 0 4px;}
+  input[type=text],input[type=tel],input[type=email],textarea{width:100%;border:1px solid var(--lijn);border-radius:10px;padding:11px 12px;font-size:15px;background:#fbfaf7;font-family:inherit;}
+  input:focus,textarea:focus{outline:none;border-color:var(--goud);background:#fff;}
+  textarea{min-height:70px;resize:vertical;}
+  .keuze{border:1px solid var(--lijn);border-radius:12px;padding:13px;margin:8px 0;display:flex;gap:10px;align-items:flex-start;cursor:pointer;}
+  .keuze.top{border:2px solid var(--goud);background:#fffdf4;}
+  .keuze input{margin-top:3px;}
+  .keuze .t{font-weight:700;font-size:15px;}
+  .keuze .s{font-size:13px;color:var(--muted);}
+  .rij{display:flex;gap:10px;}
+  .rij>div{flex:1;}
+  .akkoord{background:#faf7f2;border:1px solid var(--lijn);border-radius:12px;padding:14px;margin-top:14px;font-size:13.5px;}
+  .knop{width:100%;background:var(--rood);color:#fff;border:none;border-radius:12px;padding:15px;font-size:16px;font-weight:700;margin-top:18px;cursor:pointer;}
+  .knop.alt{background:#1a1a1a;}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="blad">
+  <header>
+    <div class="em">🍣</div>
+    <h1>Intakeformulier</h1>
+    <p>BE Sushi · alle gegevens voor uw nieuwe website</p>
+  </header>
+  <div class="body">
+
+    <h2>1. Uw gegevens</h2>
+    <label>Naam van de zaak</label>
+    <input type="text" id="f_zaak" value="BE Sushi & Poke Bowl">
+    <label>Bedrijfsnaam / BV</label>
+    <input type="text" id="f_bv" placeholder="bv. G.momo BV">
+    <label>BTW-nummer</label>
+    <input type="text" id="f_btw" placeholder="BE 0xxx.xxx.xxx">
+    <label>Adres</label>
+    <input type="text" id="f_adres" value="Bist 6, 2610 Wilrijk">
+    <div class="rij">
+      <div><label>Telefoon</label><input type="tel" id="f_tel" placeholder="03 ..."></div>
+      <div><label>E-mail</label><input type="email" id="f_mail" placeholder="naam@..."></div>
+    </div>
+    <label>Contactpersoon</label>
+    <input type="text" id="f_contact" placeholder="Naam">
+
+    <h2>2. Domeinnaam</h2>
+    <label>Welk webadres wil u?</label>
+    <input type="text" id="f_domein" value="BE-sushi.be">
+    <div class="keuze"><input type="radio" name="dom" id="dom1"><label for="dom1" style="margin:0"><span class="t">Elias registreert dit voor mij</span><br><span class="s">Volledig op naam van mijn zaak, ± €12/jaar</span></label></div>
+    <div class="keuze"><input type="radio" name="dom" id="dom2"><label for="dom2" style="margin:0"><span class="t">Ik gebruik mijn bestaand domein</span><br><span class="s">Na bevestiging bij POSGARD dat het van mij is</span></label></div>
+
+    <h2>3. Gekozen formule</h2>
+    <div class="keuze"><input type="radio" name="formule" id="for1"><label for="for1" style="margin:0"><span class="t">Basis — €50/maand</span><br><span class="s">+ €450 eenmalig · moderne website + onderhoud</span></label></div>
+    <div class="keuze top"><input type="radio" name="formule" id="for2"><label for="for2" style="margin:0"><span class="t">Met AI-assistent — €99/maand ⭐</span><br><span class="s">+ €450 eenmalig · website + AI die nooit een klant laat missen</span></label></div>
+
+    <h2>4. Inhoud van de website</h2>
+    <label>Openingsuren</label>
+    <textarea id="f_uren" placeholder="bv. Ma-Vr 11u-22u, Za-Zo 12u-23u"></textarea>
+    <label>Specialiteiten / populairste gerechten</label>
+    <textarea id="f_gerechten" placeholder="bv. sushi, poke bowls, wok..."></textarea>
+    <label>Sociale media (Instagram / Facebook)</label>
+    <input type="text" id="f_social" placeholder="links of @namen">
+    <label>Foto's beschikbaar?</label>
+    <input type="text" id="f_fotos" placeholder="ja / nee / Elias maakt ze">
+    <label>Bestelsysteem</label>
+    <input type="text" id="f_bestel" value="POSGARD (blijft ongewijzigd)">
+
+    <h2>5. Akkoord</h2>
+    <div class="akkoord">
+      Ik ga akkoord met de gekozen formule hierboven. De website is een eenmalige kost van €450, het maandbedrag is <b>maandelijks opzegbaar</b> zonder verplichting. Mijn POSGARD-systeem blijft ongewijzigd.
+    </div>
+    <div class="rij" style="margin-top:12px;">
+      <div><label>Datum</label><input type="text" id="f_datum" placeholder="__/__/2026"></div>
+      <div><label>Naam (akkoord)</label><input type="text" id="f_hand" placeholder="Naam klant"></div>
+    </div>
+
+    <button class="knop" onclick="kopieer()">📋 Gegevens kopiëren</button>
+    <button class="knop alt" onclick="window.print()">🖨️ Afdrukken / opslaan als PDF</button>
+    <div class="hint">Tip: vul samen in, kopieer en plak in WhatsApp of een notitie.</div>
+  </div>
+</div>
+<script>
+function v(id){var e=document.getElementById(id);return e?e.value:""}
+function chk(name){var els=document.getElementsByName(name);for(var i=0;i<els.length;i++){if(els[i].checked){var l=els[i].nextElementSibling;return l?l.querySelector('.t').textContent:"ja"}}return "-"}
+function kopieer(){
+  var t="INTAKE — BE SUSHI\n"+
+  "Zaak: "+v('f_zaak')+"\nBV: "+v('f_bv')+"\nBTW: "+v('f_btw')+"\nAdres: "+v('f_adres')+
+  "\nTel: "+v('f_tel')+"\nE-mail: "+v('f_mail')+"\nContact: "+v('f_contact')+
+  "\n\nDomein: "+v('f_domein')+" ("+chk('dom')+")"+
+  "\nFormule: "+chk('formule')+
+  "\n\nOpeningsuren: "+v('f_uren')+"\nGerechten: "+v('f_gerechten')+"\nSocial: "+v('f_social')+
+  "\nFoto's: "+v('f_fotos')+"\nBestelsysteem: "+v('f_bestel')+
+  "\n\nAkkoord op "+v('f_datum')+" door "+v('f_hand');
+  navigator.clipboard.writeText(t).then(function(){alert("Gegevens gekopieerd! Plak ze nu in WhatsApp of een notitie.")},function(){alert(t)});
+}
+</script>
+</body>
+</html>
