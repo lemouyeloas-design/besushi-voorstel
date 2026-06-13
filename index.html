@@ -3,104 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voorstel — Website voor BE Sushi</title>
+<title>Voorstel — Website + AI voor BE Sushi</title>
 <style>
-  :root{--rood:#c8102e;--zwart:#1a1a1a;--goud:#d4af37;--bg:#f4f1ec;--lijn:#e6ded2;--muted:#666;--groen:#1a9c5b;}
+  :root{--rood:#c8102e;--zwart:#1a1a1a;--goud:#d4af37;--bg:#f4f1ec;--lijn:#e6ded2;--muted:#666;--groen:#1a9c5b;--paars:#5b3da8;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--zwart);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .blad{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--lijn);box-shadow:0 8px 30px rgba(0,0,0,.07);overflow:hidden;}
-  header{background:linear-gradient(160deg,#1a1a1a,#2b2b2b);color:#fff;text-align:center;padding:38px 24px 30px;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--zwart);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .blad{max-width:640px;margin:0 auto;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.07);overflow:hidden;}
+  header{background:linear-gradient(160deg,#1a1a1a,#2b2b2b);color:#fff;text-align:center;padding:38px 24px 28px;}
   header .em{font-size:32px;}
   header h1{font-size:24px;margin:8px 0 4px;}
-  header p{color:var(--goud);font-weight:600;font-size:14.5px;}
-  .body{padding:6px 22px 30px;}
+  header p{color:var(--goud);font-weight:600;font-size:14px;}
+  .body{padding:8px 18px 36px;}
   p{margin:11px 0;font-size:15.5px;}
   h2{font-size:17px;margin:26px 0 10px;color:var(--rood);border-bottom:2px solid var(--lijn);padding-bottom:6px;}
-  ul{list-style:none;margin:8px 0;}
+  h2.ai{color:var(--paars);}
+  ul{list-style:none;}
   li{position:relative;padding:6px 0 6px 26px;font-size:15px;}
   li::before{content:"✓";position:absolute;left:2px;color:var(--groen);font-weight:900;}
-  .vraag{background:#faf7f2;border-left:4px solid var(--goud);border-radius:0 10px 10px 0;padding:13px 15px;margin:11px 0;}
-  .vraag .q{font-weight:700;font-size:15px;color:var(--zwart);margin-bottom:4px;}
-  .vraag .a{font-size:14.5px;color:#333;}
-  table{width:100%;border-collapse:collapse;margin:12px 0;}
-  th,td{border:1px solid var(--lijn);padding:11px 10px;text-align:center;font-size:14px;}
-  th{background:#1a1a1a;color:#fff;font-weight:600;}
-  td.lbl{text-align:left;font-weight:600;}
-  .nu{color:#b00;font-weight:700;}
-  .top{background:#fffdf4;}
-  td.prijs{font-weight:900;font-size:17px;white-space:nowrap;}
-  .kader{background:#1a1a1a;color:#fff;padding:15px;border-radius:12px;margin:14px 0;font-size:14.5px;text-align:center;}
-  .kader b{color:var(--goud);}
-  .besparing{background:#eafaf1;border:1px solid #b8e6cd;color:#0d6b3f;text-align:center;font-weight:700;padding:13px;border-radius:12px;margin:12px 0;font-size:15px;}
-  .klein{font-size:12.5px;color:var(--muted);text-align:center;}
-  .stap{background:linear-gradient(160deg,#c8102e,#9c0c24);color:#fff;text-align:center;border-radius:14px;padding:20px;margin-top:22px;}
-  .stap h2{color:#fff;border:none;justify-content:center;text-align:center;margin-top:0;}
+  .prijsrij{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #f2eee6;}
+  .prijsrij:last-child{border:none;}
+  .prijsrij .lbl{font-size:15px;}
+  .prijsrij .lbl small{display:block;color:var(--muted);font-size:12.5px;}
+  .prijsrij .val{font-size:19px;font-weight:900;white-space:nowrap;}
+  .prijsrij .val s{color:#b00;font-weight:600;font-size:15px;}
+  .besparing{background:#eafaf1;border:1px solid #b8e6cd;color:#0d6b3f;text-align:center;font-weight:700;padding:13px;border-radius:12px;margin:14px 0;font-size:15px;}
+  .pakket{border:1px solid var(--lijn);border-radius:14px;padding:14px 15px;margin:10px 0;}
+  .pakket.top{border:2px solid var(--goud);background:#fffdf4;position:relative;}
+  .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--goud);color:#1a1a1a;font-size:11px;font-weight:800;padding:3px 12px;border-radius:999px;}
+  .pakket .kop{display:flex;justify-content:space-between;align-items:baseline;}
+  .pakket .naam{font-size:16px;font-weight:800;}
+  .pakket .prijs{font-size:20px;font-weight:900;color:var(--paars);white-space:nowrap;}
+  .pakket .prijs small{font-size:12.5px;color:#888;}
+  .pakket .feat{font-size:13.5px;color:#444;margin-top:6px;}
+  .pakket .feat div{padding:2px 0 2px 20px;position:relative;}
+  .pakket .feat div::before{content:"✓";position:absolute;left:0;color:var(--groen);font-weight:900;}
+  .note{background:#faf7f2;border-radius:12px;padding:12px;font-size:13px;color:#444;margin-top:12px;text-align:center;}
+  .stap{background:linear-gradient(160deg,#c8102e,#9c0c24);color:#fff;text-align:center;border-radius:14px;padding:20px;margin-top:24px;}
+  .stap h2{color:#fff;border:none;justify-content:center;margin:0 0 6px;}
   .stap p{font-size:15px;opacity:.96;}
-  .onder{margin-top:22px;}
-  .onder .naam{font-size:20px;color:var(--rood);font-weight:700;}
-  .voet{background:#1a1a1a;color:#cfcfcf;text-align:center;padding:16px;font-size:13px;}
-  .voet b{color:#fff;}
+  .onder{margin-top:22px;} .onder .naam{font-size:20px;color:var(--rood);font-weight:700;}
+  .voet{background:#1a1a1a;color:#cfcfcf;text-align:center;padding:16px;font-size:13px;} .voet b{color:#fff;}
 </style>
 </head>
 <body>
 <div class="blad">
   <header>
     <div class="em">🍣</div>
-    <h1>Uw nieuwe website</h1>
+    <h1>Uw nieuwe website + AI</h1>
     <p>Voorstel voor BE Sushi · Wilrijk</p>
   </header>
   <div class="body">
 
-    <p>Beste mevrouw, bedankt voor het fijne gesprek. 🙏 Hieronder vindt u alles rustig op een rij.</p>
+    <p>Beste mevrouw, bedankt voor het fijne gesprek. 🙏 Hieronder vindt u alles duidelijk op één pagina.</p>
 
     <h2>✨ Wat u krijgt</h2>
     <ul>
       <li>Een moderne, professionele website met foto's van uw gerechten</li>
       <li>Beter gevonden worden op Google (Wilrijk / Antwerpen)</li>
       <li>Klaar voor de nieuwe AI-zoekrobots van Google</li>
+      <li>Uw eigen domein <b>BE-sushi.be</b>, volledig op naam van uw zaak</li>
       <li>Uw bestelsysteem POSGARD blijft exact hetzelfde</li>
-      <li>Ik regel alles van A tot Z — u hoeft niets technisch te doen</li>
+      <li>Ik regel alles van A tot Z — u doet niets technisch</li>
     </ul>
 
-    <h2>🌐 Over uw domeinnaam</h2>
-    <p>Een domeinnaam is het internetadres van uw zaak, bijvoorbeeld <b>BE-sushi.be</b>. Dat is wat klanten intikken om u te vinden.</p>
-    <p>Op uw POSGARD-factuur betaalt u eigenlijk voor <b>3 adressen</b> (BE-sushi.be, SushiBE.be, Sushi-BE.be): samen <b>€90 per jaar</b>, automatisch via domiciliëring.</p>
-    <p>Voor één restaurant is <b>één goed adres ruim voldoende</b>. We houden <b>BE-sushi.be</b>, en de twee andere kan u stopzetten om te besparen. Ik beheer dit gerust mee voor u.</p>
+    <h2>💶 De prijs van de website</h2>
+    <div class="prijsrij"><div class="lbl">Website <small>eenmalig, vriendenprijs</small></div><div class="val"><s>€550</s> €450</div></div>
+    <div class="prijsrij"><div class="lbl">Onderhoud <small>website up-to-date, ik regel alles</small></div><div class="val">€50<small style="font-size:13px;color:#888">/mnd</small></div></div>
+    <div class="besparing">💚 Vandaag betaalt u al €90/maand. Met onderhoud aan €50 bespaart u €40 per maand (± €480/jaar).</div>
 
-    <h2>❓ Uw vragen over het domein</h2>
-    <div class="vraag"><div class="q">Is BE-sushi.be echt van mij?</div><div class="a">Ja. Het staat op naam van uw zaak. POSGARD heeft het enkel voor u geregistreerd — het is en blijft van u.</div></div>
-    <div class="vraag"><div class="q">Verlies ik iets tijdens de overgang?</div><div class="a">Nee. POSGARD en uw bestellingen blijven werken. De nieuwe site gaat pas live wanneer alles getest en klaar is. Geen onderbreking.</div></div>
-    <div class="vraag"><div class="q">Als ik later zou stoppen met u?</div><div class="a">Uw domein blijft altijd van u, wat er ook gebeurt. U bent nergens aan vast.</div></div>
+    <h2 class="ai">🤖 AI-assistent (optioneel)</h2>
+    <p style="margin-top:4px">Een assistent die 24/7 voor u werkt en opvangt wat u nu verliest: gemiste oproepen, berichten en reservaties.</p>
 
-    <h2>💶 De prijs</h2>
-    <table>
-      <tr><th>Per maand</th><th>Vandaag</th><th>Basis</th><th class="top">Met AI ⭐</th></tr>
-      <tr><td class="lbl">Maandelijks</td><td class="nu">€90</td><td class="prijs">€50</td><td class="prijs top">€99</td></tr>
-      <tr><td class="lbl">Eenmalig (website)</td><td>—</td><td><s style="color:#b00">€550</s> <b>€450</b></td><td class="top"><s style="color:#b00">€550</s> <b>€450</b></td></tr>
-      <tr><td class="lbl">Moderne site + foto's</td><td>❌</td><td>✅</td><td class="top">✅</td></tr>
-      <tr><td class="lbl">AI-assistent</td><td>❌</td><td>❌</td><td class="top">✅</td></tr>
-    </table>
-    <div class="besparing">🎁 De website is normaal €550, maar voor u maak ik er een <b>vriendenprijs van €450</b> van.</div>
-    <div class="besparing">💚 Met de Basis-formule bespaart u bovendien € 40 per maand (± € 480 per jaar)</div>
-    <div class="kader">Vandaag betaalt u al <b>€90/maand</b>. Bij mij krijgt u méér, voor minder. En met AI bijna dezelfde prijs, mét een assistent die nooit een klant laat missen.</div>
-    <p class="klein">Maandelijks opzegbaar · geen verplichting · uw domein inbegrepen</p>
+    <div class="pakket">
+      <div class="kop"><span class="naam">AI Start</span><span class="prijs">+€49<small>/mnd</small></span></div>
+      <div class="feat"><div>Automatisch antwoord op gemiste oproepen</div><div>FAQ-assistent (uren, menu, ligging)</div></div>
+    </div>
+    <div class="pakket top">
+      <div class="badge">AANBEVOLEN</div>
+      <div class="kop"><span class="naam">AI Plus</span><span class="prijs">+€79<small>/mnd</small></span></div>
+      <div class="feat"><div>Alles van Start</div><div>Antwoorden op WhatsApp &amp; Facebook</div><div>Reservaties opnemen</div><div>Google-reviews vragen &amp; beheren</div></div>
+    </div>
+    <div class="pakket">
+      <div class="kop"><span class="naam">AI Volledig</span><span class="prijs">+€119<small>/mnd</small></span></div>
+      <div class="feat"><div>Alles van Plus</div><div>Automatische posts op Instagram &amp; Facebook</div></div>
+    </div>
+    <div class="note">AI-bedragen komen bovenop het onderhoud. Eenmalige opstart (AI trainen op uw gegevens): €150 – €250.<br><b>Alles maandelijks opzegbaar · geen verplichting.</b></div>
 
-    <h2>🤖 Wat de AI-assistent doet</h2>
-    <ul>
-      <li>Beantwoordt gemiste oproepen en WhatsApp automatisch</li>
-      <li>Neemt reservaties op, ook tijdens de drukte</li>
-      <li>Helpt met uw Google-reviews</li>
-    </ul>
+    <h2>🌐 Over uw domein</h2>
+    <p>Op uw POSGARD-factuur betaalt u voor 3 domeinnamen. Voor één restaurant volstaat <b>één goed adres</b> (BE-sushi.be). Ik registreer of beheer dat voor u, zodat u eigenaar bent en niet teveel betaalt. Maandag bevestigt u dit even bij POSGARD.</p>
 
     <div class="stap">
       <h2>👉 Volgende stap</h2>
       <p>Zegt u <b>ja</b>? Dan plannen we één werksessie en bent u snel online.<br>Past het niet? Geen probleem, u zegt gewoon neen.</p>
     </div>
 
-    <div class="onder">
-      <p style="margin-bottom:2px;">Met vriendelijke groeten,</p>
-      <div class="naam">Elias</div>
-    </div>
+    <div class="onder"><p style="margin-bottom:2px;">Met vriendelijke groeten,</p><div class="naam">Elias</div></div>
   </div>
   <div class="voet"><b>Elias</b> — uw persoonlijke contact, altijd bereikbaar 🤝</div>
 </div>
