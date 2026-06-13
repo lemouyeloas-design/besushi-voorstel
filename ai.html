@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-service — BE Sushi</title>
+<style>
+  :root{--rood:#c8102e;--zwart:#1a1a1a;--goud:#d4af37;--bg:#f4f1ec;--lijn:#e6ded2;--muted:#666;--paars:#5b3da8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--zwart);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .blad{max-width:640px;margin:0 auto;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.07);overflow:hidden;}
+  header{background:linear-gradient(160deg,#241a3a,#3a2a66);color:#fff;text-align:center;padding:36px 22px 28px;}
+  header .em{font-size:34px;}
+  header h1{font-size:23px;margin:8px 0 5px;}
+  header p{color:#cdbcff;font-size:14px;}
+  .body{padding:18px 18px 36px;}
+  .intro{font-size:15.5px;margin:6px 0 4px;}
+  h2{font-size:16px;color:var(--paars);margin:24px 0 10px;border-bottom:2px solid var(--lijn);padding-bottom:6px;}
+  ul{list-style:none;}
+  li{position:relative;padding:8px 0 8px 30px;font-size:15px;border-bottom:1px solid #f2eee6;}
+  li:last-child{border:none;}
+  li .ic{position:absolute;left:0;top:7px;font-size:18px;}
+  .pakket{border:1px solid var(--lijn);border-radius:14px;padding:16px;margin:12px 0;}
+  .pakket.top{border:2px solid var(--goud);background:#fffdf4;position:relative;}
+  .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--goud);color:#1a1a1a;font-size:11px;font-weight:800;padding:3px 12px;border-radius:999px;}
+  .pakket .naam{font-size:16px;font-weight:800;}
+  .pakket .prijs{font-size:26px;font-weight:900;color:var(--paars);margin:2px 0 8px;}
+  .pakket .prijs small{font-size:14px;color:#888;font-weight:600;}
+  .pakket .feat{font-size:14px;color:#333;}
+  .pakket .feat div{padding:3px 0 3px 22px;position:relative;}
+  .pakket .feat div::before{content:"✓";position:absolute;left:0;color:#1a9c5b;font-weight:900;}
+  .note{background:#faf7f2;border-radius:12px;padding:13px;font-size:13.5px;color:#444;margin-top:14px;text-align:center;}
+  .voet{background:#241a3a;color:#cdbcff;text-align:center;padding:16px;font-size:13px;}
+  .voet b{color:#fff;}
+</style>
+</head>
+<body>
+<div class="blad">
+  <header>
+    <div class="em">🤖</div>
+    <h1>Uw slimme AI-assistent</h1>
+    <p>Voor BE Sushi · nooit nog een klant missen</p>
+  </header>
+  <div class="body">
+
+    <p class="intro">Een assistent die <b>24/7 voor u werkt</b>, zelfs tijdens de drukte of wanneer u gesloten bent. Hij vangt op wat u nu verliest: gemiste oproepen, berichten en reservaties.</p>
+
+    <h2>Wat de AI-assistent voor u doet</h2>
+    <ul>
+      <li><span class="ic">📞</span> Beantwoordt gemiste oproepen automatisch met een berichtje</li>
+      <li><span class="ic">💬</span> Antwoordt op WhatsApp- en Facebook-berichten van klanten</li>
+      <li><span class="ic">📅</span> Neemt reservaties op, ook 's nachts en tijdens de spits</li>
+      <li><span class="ic">❓</span> Beantwoordt veelgestelde vragen (uren, menu, allergenen)</li>
+      <li><span class="ic">⭐</span> Vraagt automatisch om Google-reviews en helpt ze beheren</li>
+      <li><span class="ic">📷</span> Plaatst automatisch posts op Instagram en Facebook</li>
+    </ul>
+
+    <h2>De pakketten</h2>
+
+    <div class="pakket">
+      <div class="naam">AI Start</div>
+      <div class="prijs">€49<small>/maand</small></div>
+      <div class="feat">
+        <div>Automatisch antwoord op gemiste oproepen</div>
+        <div>FAQ-assistent (uren, menu, ligging)</div>
+      </div>
+    </div>
+
+    <div class="pakket top">
+      <div class="badge">AANBEVOLEN</div>
+      <div class="naam">AI Plus</div>
+      <div class="prijs">€79<small>/maand</small></div>
+      <div class="feat">
+        <div>Alles van AI Start</div>
+        <div>Antwoorden op WhatsApp &amp; Facebook</div>
+        <div>Reservaties opnemen</div>
+        <div>Google-reviews vragen &amp; beheren</div>
+      </div>
+    </div>
+
+    <div class="pakket">
+      <div class="naam">AI Volledig</div>
+      <div class="prijs">€119<small>/maand</small></div>
+      <div class="feat">
+        <div>Alles van AI Plus</div>
+        <div>Automatische social media posts</div>
+        <div>Volledige opvolging, u hoeft nergens nog aan te denken</div>
+      </div>
+    </div>
+
+    <div class="note">
+      Eenmalige opstart (de AI trainen op úw gegevens): <b>€150 – €250</b>.<br>
+      Maandelijks opzegbaar · geen verplichting · ik regel de volledige installatie.
+    </div>
+  </div>
+  <div class="voet"><b>Elias</b> — uw persoonlijke contact, altijd bereikbaar 🤝</div>
+</div>
+</body>
+</html>
